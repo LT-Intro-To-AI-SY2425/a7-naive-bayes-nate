@@ -71,7 +71,7 @@ class BayesClassifier:
         #     <the rest of your code for updating frequencies here>
             text = self.load_file(os.path.join(self.training_data_directory, filename))
             tokens = self.tokenize(text)
-            print(tokens)
+            # print(tokens)
         # we want to fill pos_freqs and neg_freqs with the correct counts of words from
         # their respective reviews
         
@@ -121,18 +121,20 @@ class BayesClassifier:
 
         
         # get a list of the individual tokens that occur in text
-        
+        tokens = self.tokenize(text)
 
         # create some variables to store the positive and negative probability. since
         # we will be adding logs of probabilities, the initial values for the positive
         # and negative probabilities are set to 0
-        
+        pos_score = 0
+        neg_score = 0
 
         # get the sum of all of the frequencies of the features in each document class
         # (i.e. how many words occurred in all documents for the given class) - this
         # will be used in calculating the probability of each document class given each
         # individual feature
-        
+        pos_denomintor = sum(self.pos_freqs.values())
+        neg_denominator = sum(self.neg_freqs.values())
 
         # for each token in the text, calculate the probability of it occurring in a
         # postive document and in a negative document and add the logs of those to the
@@ -234,7 +236,7 @@ class BayesClassifier:
             if word in freqs:
                 freqs[word] += 1
             else:
-                freqs[word] -= 1
+                freqs[word] = 1
               
         
 
