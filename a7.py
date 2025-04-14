@@ -122,7 +122,7 @@ class BayesClassifier:
         
         # get a list of the individual tokens that occur in text
         tokens = self.tokenize(text)
-
+        print(tokens)
         # create some variables to store the positive and negative probability. since
         # we will be adding logs of probabilities, the initial values for the positive
         # and negative probabilities are set to 0
@@ -141,7 +141,16 @@ class BayesClassifier:
         # running sums. when calculating the probabilities, always add 1 to the numerator
         # of each probability for add one smoothing (so that we never have a probability
         # of 0)
+        for token in tokens:
+            pos_freqs = self.pos_freqs.get(token, 0) + 1
+            neg_freqs = self.neg_freqs.get(token, 0) + 1
 
+            print(pos_freqs, neg_freqs)
+
+            pos_score = math.log(pos_freqs / (pos_denominator))
+            neg_score = math.log(neg_freqs / neg_denominator)
+
+            print(pos_score, neg_score)
 
         # for debugging purposes, it may help to print the overall positive and negative
         # probabilities
@@ -149,7 +158,10 @@ class BayesClassifier:
 
         # determine whether positive or negative was more probable (i.e. which one was
         # larger)
-        
+        if pos_score > neg_score:
+            return "positive"
+        else:
+            return "negative"
 
         # return a string of "positive" or "negative"
 
@@ -290,4 +302,8 @@ if __name__ == "__main__":
     print("\nThe following should all be negative.")
     print(b.classify('rainy days are the worst'))
     print(b.classify('computer science is terrible'))
+
+    print()
+    print(b.classify("Intro to artificial intelligence is the best class"))
+    print(b.classify("not the best way to do this"))
     pass
