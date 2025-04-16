@@ -330,4 +330,8 @@ if __name__ == "__main__":
     print(b.classify("I am nervous that I won't do well on the AP tests.  I have studied, but I don't think I'll do that well"))
     print(b.classify("My friends suck at Rainbow Six Siege."))
     print(b.classify("You are so lame for that."))
+    print(b.classify("The best Chick-fil-A if you're going to dance with the ethical poultry devil in Chicago. The associates are super nice, quick, and the food is delicious. You just have to weigh the crappiness of their corporate politics against the tastiness of their food."))
+    print(b.classify("I love this place I always get the cobb salad with extra tomato and eggs. The people make you feel so welcomed and friendly. I really like to enjoy them around 3-4 times a week if I could. They feel like family"))
+    print(b.classify("This is my second time ordering the grilled chicken club sandwich here, with a gluten free bun and receiving everything BUT the chicken. How do you forget the chicken? Did not notice until I got home. Did not bother driving back and wasting my time to have them fix it. Check your food before leaving! Definitely an annoying situation."))
+    print(b.classify("HAIR in the food!! Got some chicken tenders had a hair in it. Asked for a refunded but they insisted on having to take the food back in person even though it was an online order. When I asked if I would be compensated for having to go out of my way they said no. So definitely would not eat there unless you like hair in your food."))
     pass
