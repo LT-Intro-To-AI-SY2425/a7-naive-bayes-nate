@@ -1,3 +1,4 @@
+#Nate Fulkerson
 import math, os, pickle, re
 from typing import Tuple, List, Dict
 
@@ -169,7 +170,8 @@ class BayesClassifier:
 
         # for debugging purposes, it may help to print the overall positive and negative
         # probabilities
-        
+        print(f"Positive Probability: {pos_score}")
+        print(f"Negative Probability: {neg_score}")
 
         # determine whether positive or negative was more probable (i.e. which one was
         # larger)
@@ -317,8 +319,15 @@ if __name__ == "__main__":
     print("\nThe following should all be negative.")
     print(b.classify('rainy days are the worst'))
     print(b.classify('computer science is terrible'))
+    print("\nThe following is to test out the method with each groups responses")
 
     print()
     print(b.classify("Intro to artificial intelligence is the best class"))
     print(b.classify("not the best way to do this"))
+    print(b.classify("Summer break is almost here. I am super excited and I know that it's going to be the best"))
+    print(b.classify("I'm ecstatic to go home."))
+    print(b.classify("I love to see my girlfriend."))
+    print(b.classify("I am nervous that I won't do well on the AP tests.  I have studied, but I don't think I'll do that well"))
+    print(b.classify("My friends suck at Rainbow Six Siege."))
+    print(b.classify("You are so lame for that."))
     pass
